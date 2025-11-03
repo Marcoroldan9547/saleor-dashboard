@@ -10,7 +10,7 @@
   "main": "src/index.tsx",
   "scripts": {
     "prebuild": "npm run generate",
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build",
+    "build": "next build",
     "build-flags": "node scripts/build-flags.cjs",
     "build-storybook": "storybook build",
     "change:add": "changeset add",
@@ -45,7 +45,7 @@
     "prestart": "npm run generate",
     "storybook": "storybook dev -p 6006",
     "test": "jest",
-    "test:ci": "CI=true jest --coverage --silent",
+    "test:ci": "jest --ci --coverage --coverageReporters=lcov --reporters=default --reporters=jest-junit",
     "test:debug": "DEBUG_PRINT_LIMIT=20000 jest",
     "test:quiet": "jest --silent",
     "test:watch": "jest --watch"
@@ -137,6 +137,9 @@
     "zod-validation-error": "3.5.3"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
+    "@testing-library/react": "^14.0.0",
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.27.9",
     "@editorjs/embed": "^2.5.3",
